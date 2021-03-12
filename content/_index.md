@@ -1,24 +1,24 @@
 ---
-title: Documentation
+title: Fundamentación
 ---
 
-<!-- markdownlint-capture -->
-<!-- markdownlint-disable MD033 -->
+La asignatura Desarrollo de Aplicaciones Cliente Servidor ha dado, en su dictado de más de una década,
+un contacto intenso con las herramientas de uso normal en la industria para el desarrollo y la ingeniería
+de software. En la actualidad estos conceptos generales siguen siendo válidos, pero han cambiado significativamente
+los detalles subyacentes en el diseño, programación, prueba, despliegue y mantenimiento de una aplicación cliente-servidor.
+El tráfico de internet generado por dispositivos táctiles y móviles es mayor que el de equipos de escritorio, y
+la introducción las nueves de datos fuerzan al ingeniero a dominar una nueva forma de crear aplicaciones altamente
+conectadas. Las tecnologías cliente-servidor han mutado, mayor mente desde un modelo monolítico a un modelo distribuido
+de micro-servicios, basado en infraestructuras basadas en contenedores, posibilitando el escalamiento horizontal.
+Un importante porcentaje de código de cualquier aplicación está relacionado con la administración de conectividad de
+datos sobre redes públicas, y por lo tanto se hace mandatorio enfocarse en los estándares emergentes y abiertos
+basados en internet, tanto en el cliente como en la infraestructura del servidor.
 
-<span class="badge-placeholder">[![Build Status](https://img.shields.io/drone/build/thegeeklab/hugo-geekdoc?logo=drone&server=https%3A%2F%2Fdrone.thegeeklab.de)](https://drone.thegeeklab.de/thegeeklab/hugo-geekdoc)</span>
-<span class="badge-placeholder">[![Hugo Version](https://img.shields.io/badge/hugo-0.65-blue.svg)](https://gohugo.io)</span>
-<span class="badge-placeholder">[![GitHub release](https://img.shields.io/github/v/release/thegeeklab/hugo-geekdoc)](https://github.com/thegeeklab/hugo-geekdoc/releases/latest)</span>
-<span class="badge-placeholder">[![GitHub contributors](https://img.shields.io/github/contributors/thegeeklab/hugo-geekdoc)](https://github.com/thegeeklab/hugo-geekdoc/graphs/contributors)</span>
-<span class="badge-placeholder">[![License: MIT](https://img.shields.io/github/license/thegeeklab/hugo-geekdoc)](https://github.com/thegeeklab/hugo-geekdoc/blob/master/LICENSE)</span>
+La adopción de los lenguajes de programación también han cambiado significativamente, pasando de lenguajes como javascript y golang, haciendo que los frameworks de ejecución cambien significativamente. Esto incluye servicios de soporte al ciclo de vida de una aplicación, desde el diseño hasta el mantenimiento de la misma, tanto en los modelos on-premise, como los basados en la nube. Igualmente, los sistemas convergentes son una realidad, al borrarse los límites entre los sistemas móviles y de escritorio, las técnicas de desarrollo también han mutado. Es evidente que semejante razón de cambio exige una materia de orientación eminentemente práctica y con contenido puesto al día, contemplando los conceptos tradicionales de la ingeniería de software cliente-servidor, pero haciendo énfasis práctico en los estándares emergentes de estos nuevos modelos, sobre todo en las nuevas tecnologías convergentes.
 
-<!-- markdownlint-restore -->
+## Objetivos Generales de la asignatura
 
-Geekdoc is a simple Hugo theme for documentations. It is intentionally designed as a fast and lean theme and may not fit the requirements of complex projects. If a more feature-complete theme is required there are a lot of got alternatives out there. You can find a demo and the full documentation at [https://geekdocs.de](https://geekdocs.de).
-
-## Features
-
-- Clean and simple design
-- Light and mobile-friendly
-- Easy customization
-- Zero initial configuration
-- Handy shortcodes
+- Que el alumno profundice los conocimientos en el análisis, diseño y desarrollo de aplicaciones en la metáfora cliente-servidor.
+- Que el alumno aplique las herramientas que el mercado ofrece para crear soluciones útiles a problemas reales, produciendo sistemas de alto rendimiento.
+- Que el alumno tenga acceso a tecnologías de última generación.
+- Que el alumno pueda desarrollar aplicaciones utilizando tecnologías emergentes, como ser la computación en la nube.
