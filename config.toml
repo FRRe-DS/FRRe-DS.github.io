@@ -9,6 +9,7 @@ pygmentsUseClasses = true
 pygmentsCodeFences = true
 disablePathToLower = true
 enableGitInfo = true
+pluralizeListTitles = false
 
 [markup]
   [markup.goldmark.renderer]
@@ -29,7 +30,7 @@ enableGitInfo = true
   geekdocLogo = "logo.jpeg"
 
   # (Optional, default false) Render menu from data file im 'data/menu/main.yaml'.
-  geekdocMenuBundle = true
+  geekdocMenuBundle = false
 
   # (Optional, default true) Show page navigation links at the bottom of each
   # docs page (bundle menu only).
@@ -37,7 +38,7 @@ enableGitInfo = true
 
   # (Optional, default true) Show a breadcrumb navigation bar at the top of each docs page.
   # You can also specify this parameter per page in front matter.
-  geekdocBreadcrumb = false
+  geekdocBreadcrumb = true
 
   # (Optional, default none) Set source repository location. Used for 'Edit this page' links.
   # You can also specify this parameter per page in front matter.
@@ -50,7 +51,7 @@ enableGitInfo = true
 
   # (Optional, default true) Enables search function with flexsearch.
   # Index is built on the fly and might slowdown your website.
-  geekdocSearch = false
+  geekdocSearch = true
 
   # (Optional, default false) Display search results with the parent folder as prefix. This
   # option allows you to distinguish between files with the same name in different folders.
