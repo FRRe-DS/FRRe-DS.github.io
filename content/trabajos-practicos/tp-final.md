@@ -1,5 +1,6 @@
 ---
-title: Trabajo Práctivo Final
+title: Trabajo Práctico Final
+weight: 10
 ---
 
 ## Objetivos
@@ -54,3 +55,20 @@ La evolución de trabajo se realizará de acuerdo a la siguiente tabla:
 | **Total**                               |                                        |            | 100     |
 
 ## Actividad 1: Escenario
+
+El Ministerio de Desarrollo Productivo, junto con la Secretaría de Comercio Interior han sancionado la
+[Resolución 237/2021](https://www.boletinoficial.gob.ar/detalleAviso/primera/241937/20210317) por la cual se
+crea el **Sistema Informativo para la Implementación de Políticas de Reactivación Económica** (SIPRE).
+
+Este sistema, cuyo objetivo final es contribuir a la reactivación económica del país, tiene por alcance a
+todas las empresas del sector comercio e industria local. Estas empresas deberá suministrar información
+de forma mensual, a través del repositorio de información del MINISTERIO DE DESARROLLO PRODUCTIVO,
+los primeros diez (10) días corridos de cada mes calendario.
+
+La información suministrada deberá contener, como mínimo, los siguientes datos:
+
+- CUIT de la empresa.
+- Denominación del producto.
+- Código EAN o equivalente sectorial del producto; y
+- Precio por unidad de peso, cantidad o medida del producto.
+- Cantidades producidas y vendidas.
