@@ -71,4 +71,4 @@ La información suministrada deberá contener, como mínimo, los siguientes dato
 - Denominación del producto.
 - Código EAN o equivalente sectorial del producto; y
 - Precio por unidad de peso, cantidad o medida del producto.
-- Cantidades producidas y vendidas.
+- Cantidades producidas y vendidas
