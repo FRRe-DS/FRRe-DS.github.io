@@ -1,5 +1,6 @@
 ---
-title: Trabajo Práctico Final (Draft)
+title: Trabajo Práctico Final
+description: "Denifición del TP Final de Desarrollo de Aplicaciones Cliente-Servidor, año 2021."
 weight: 10
 ---
 
@@ -72,3 +73,34 @@ La información suministrada deberá contener, como mínimo, los siguientes dato
 - Código EAN o equivalente sectorial del producto; y
 - Precio por unidad de peso, cantidad o medida del producto.
 - Cantidades producidas y vendidas
+
+Para esto los alumnos de la cátedra Desarrollo de Aplicaciones Cliente-Servidor deberá desarrollar
+un sistema que implemente los siguiente sub-sistemas:
+
+### Ministerio de Desarrollo Productivo
+
+Este sub-sistema deberá exponer las APIs (Application Programing Interface) para que las
+empresas presenten mensualmente la información de regimen informativo de la resolución.
+A su vez, deberá exponer servicios para resumir la información que está disponible para la
+Secretaría de Comercio Interior.
+
+### Empresas del Sector Comercio
+
+Se deberá crear librerias para acceder y publicar los regímenes informativos al **Ministerio de
+Desarrollo Productivo**. Se deberá proveer una implementación de referencia, que utilice la librería
+y publique los datos en el Ministerio.
+
+### Secretaría de Comercio Interior
+
+La Secretería de Comercio Interior debe ser capaz de consultar los datos publicados
+en el repositorio de información del Ministerio de Desarrollo Productivo, y por medio
+de ciertas reglas de negocios y políticas establacidas, generar altertas de incumplimiento,
+y en caso de ser necesario, reportar al comercio el incumplimiento de la normativa.
+
+## Desarrollo
+
+Para el desarrollo del TP, los grupos deberán definir, coordinando entre ellos, las APIs
+de los diferentes actores y publicarlas en el sitio web de la [materia](https://github.com/FRRe-DACS/FRRe-DACS.github.io/) 
+(por medio de PRs).
+
+Por ejemplo: 
