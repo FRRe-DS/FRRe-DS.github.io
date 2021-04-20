@@ -103,4 +103,7 @@ Para el desarrollo del TP, los grupos deberán definir, coordinando entre ellos,
 de los diferentes actores y publicarlas en el sitio web de la [materia](https://github.com/FRRe-DACS/FRRe-DACS.github.io/) 
 (por medio de PRs).
 
-Por ejemplo: 
+Por ejemplo: para la definición de las APIs, los diferentes grupos deberán generar, en forma
+colaborativa el documento de [Definición de APIs](apis). Esto lo deberán hacer, haciendo
+un fork de repositorio del sitio web, generando la documentación y realizando un PR, como
+se dio en el [TP 1](../tp_01#actividad-3-actividad-práctica-sobre-git-y-github).
