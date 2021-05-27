@@ -14,7 +14,7 @@ Este documento define las interfaces entre los diferentes sub-sistemas del TP Fi
 		```typescript
 		const reporteSchema = new Schema<IReport>({
   			infoEmpresa: {
-   				type: Schema.Types.ObjectId,
+    				type: Schema.Types.ObjectId,
    				ref: "Business",
  			},
   			listaRegistro: {
@@ -41,8 +41,8 @@ Este documento define las interfaces entre los diferentes sub-sistemas del TP Fi
     			},
     					month: {
 						type: String,
-						require: true,
-						trim: true,
+      			    			require: true,
+      						trim: true,
     			},
 			},
 			});
