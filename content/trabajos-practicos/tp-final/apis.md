@@ -12,37 +12,37 @@ Este documento define las interfaces entre los diferentes sub-sistemas del TP Fi
 	- Reportes
 	
 		```typescript
-		const reporteSchema = new Schema<IReport>({
-  			infoEmpresa: {
-    				type: Schema.Types.ObjectId,
-   				ref: "Business",
+			const reporteSchema = new Schema<IReport>({
+  				infoEmpresa: {
+    					type: Schema.Types.ObjectId,
+   					 ref: "Business",
  				 },
-  			listaRegistro: {
-   				type: [
+  				listaRegistro: {
+   					 type: [
       					{
-        				type: Schema.Types.ObjectId,
-        				ref: "Products",
-     					},
-   					],
+        					type: Schema.Types.ObjectId,
+        					ref: "Products",
+     					 },
+   					 ],
   				},
-  			date_upload : {
+  				date_upload : {
 	      				type : Date,
 	      				default : Date.now()
   				},
-  			day_limit : {
+  				day_limit : {
 	      				type : Number,
 	      				default : 10
   				},
-  			periodo: {
+  				periodo: {
 	   				year: {
-	      					type: String,
-      						require: true,
-      						trim: true,
+	      				type: String,
+      					require: true,
+      					trim: true,
     			},
-    					month: {
-						type: String,
-      			    			require: true,
-      						trim: true,
+    				month: {
+					type: String,
+      			    		require: true,
+      					trim: true,
     			},
   			},
 			});
