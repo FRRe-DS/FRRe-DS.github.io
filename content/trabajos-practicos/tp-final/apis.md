@@ -16,15 +16,15 @@ Este documento define las interfaces entre los diferentes sub-sistemas del TP Fi
   			infoEmpresa: {
     				type: Schema.Types.ObjectId,
    				ref: "Business",
- 				 },
+ 			},
   			listaRegistro: {
    				type: [
       					{
         				type: Schema.Types.ObjectId,
         				ref: "Products",
      					},
-   					],
-  				},
+   				],
+  			},
   			date_upload : {
 	      				type : Date,
 	      				default : Date.now()
@@ -32,7 +32,7 @@ Este documento define las interfaces entre los diferentes sub-sistemas del TP Fi
   			day_limit : {
 	      				type : Number,
 	      				default : 10
-  				},
+  			},
   			periodo: {
 	   				year: {
 	      					type: String,
@@ -44,7 +44,7 @@ Este documento define las interfaces entre los diferentes sub-sistemas del TP Fi
       			    			require: true,
       						trim: true,
     			},
-  			},
+			},
 			});
 		```
 	- Empresas 
