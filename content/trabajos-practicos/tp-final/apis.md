@@ -63,11 +63,11 @@ Este documento define las interfaces entre los diferentes sub-sistemas del TP Fi
   			},
  			 report: {
    				 type: [
-      					{
-  					type: Schema.Types.ObjectId,
-  					ref: "Report",
-     				 	},
-    				],
+      				{
+        				type: Schema.Types.ObjectId,
+        				ref: "Report",
+     				 },
+    			],
   			},
 		});
 		```
