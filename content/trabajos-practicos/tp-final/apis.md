@@ -8,7 +8,7 @@ weight: 2
 Este documento define las interfaces entre los diferentes sub-sistemas del TP Final.
 
 
-## Ministerio de Desarrollo Productivo 📋
+### Ministerio de Desarrollo Productivo 📋
 * **Esquemas de Datos**
 	- Reportes
 	
