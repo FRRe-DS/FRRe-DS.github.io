@@ -182,6 +182,9 @@ Este documento define las interfaces entre los diferentes sub-sistemas del TP Fi
     - Elimino un reporte asociado a la empresa autenticada. Se pasa por parametro el id del reporte.
 
       > DELETE localhost:3000/api/reports/:\_id
+    
+   ## Acotación debido a diferencia de opinión: 
+   Lo que presentan las empresas es una declaracion jurada, por lo que el recurso a exponer en la ruta debería ser según mi entendimiento /declaraciones-juradas, debido a que un reporte es un informe, que por ejemplo podría ser generado en base a las declaraciones juradas presentadas, además que en el lenguaje del negocio se lo define explícitamente como  "declaración jurada". Por otro lado estoy trabajando en funcionalidades que me permitan generar registros con procesos estadísticos que permitan al ministerio tomar decisiones acerca de un sector, analizando la relación cantidad producida sobre vendida, para poder impulsar las ventas en caso de ser necesario o producir más en caso de escacez de un producto o sector, como ser en el lácteo la leche entera. Esto último mencionado serían reportes generados por sistema en la API ministerio expuesto quizá en un ruta como /reportes-de-produccion. De conultar los reportes de produccion, si lo llamaremos así, el ministerio podría implementar, por ejemplo,  una política para un sector  "x" que permita a determinadas empresas que reúnan una condición determinada acceder a una tasa de financiamiento diferencial, debido a que los reportes servirían como soporte para la toma de decisiones. Más o menos esto lo habíamos charlado en clase, debido a que lo que quiere el ministerio es reactivar la economía. Es mi humilde opinión. D'Antiochia Conrado/grupo 10
 
   - Rutas para manipular la autenticación de empresas, estas rutas devuelven en el Header el token de autenticación necesario para acceder a las rutas arriba mencionadas.
 
