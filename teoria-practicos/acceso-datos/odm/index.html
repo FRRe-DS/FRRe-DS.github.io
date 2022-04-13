@@ -26,103 +26,103 @@ aplicación manipulara. Estos atributos incluyen cosas como:<br>● Tipo de dato
 Boolean, Mixed (puede venir cualquier cosa), ObjectId (links a otros documentos en la
 DB), Array.<br>● Si es obligatorio u opcional.<br>● Su valor por defecto.<br>● Crear índices para que la información sea obtenida más rápido.</p><div class=gdoc-page__anchorwrap><h3 id=getterssetters-en-mongoose>Getters/Setters en Mongoose
 <a data-clipboard-text=https://frre-dacs.github.io/teoria-practicos/acceso-datos/odm/#getterssetters-en-mongoose class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Getters/Setters en Mongoose" href=#getterssetters-en-mongoose><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg></a></h3></div><p>Una función GET que te permite manipular la información entrante antes de ser devuelta
-como objeto:</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>userSchema</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Schema</span><span class=p>({</span>
-  <span class=nx>email</span><span class=o>:</span> <span class=p>{</span>
-    <span class=nx>type</span><span class=o>:</span> <span class=nb>String</span><span class=p>,</span>
-    <span class=nx>get</span><span class=o>:</span> <span class=nx>obfuscate</span>
-  <span class=p>}</span>
-<span class=p>});</span>
-
-<span class=c1>// Mongoose passes the raw value in MongoDB `email` to the getter
-</span><span class=c1></span><span class=kd>function</span> <span class=nx>obfuscate</span><span class=p>(</span><span class=nx>email</span><span class=p>)</span> <span class=p>{</span>
-  <span class=kr>const</span> <span class=nx>separatorIndex</span> <span class=o>=</span> <span class=nx>email</span><span class=p>.</span><span class=nx>indexOf</span><span class=p>(</span><span class=s1>&#39;@&#39;</span><span class=p>);</span>
-  <span class=k>if</span> <span class=p>(</span><span class=nx>separatorIndex</span> <span class=o>&lt;</span> <span class=mi>3</span><span class=p>)</span> <span class=p>{</span>
-    <span class=c1>// &#39;ab@gmail.com&#39; -&gt; &#39;**@gmail.com&#39;
-</span><span class=c1></span>    <span class=k>return</span> <span class=nx>email</span><span class=p>.</span><span class=nx>slice</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=nx>separatorIndex</span><span class=p>).</span><span class=nx>replace</span><span class=p>(</span><span class=sr>/./g</span><span class=p>,</span> <span class=s1>&#39;*&#39;</span><span class=p>)</span> <span class=o>+</span>
-      <span class=nx>email</span><span class=p>.</span><span class=nx>slice</span><span class=p>(</span><span class=nx>separatorIndex</span><span class=p>);</span>
-  <span class=p>}</span>
-  <span class=c1>// &#39;test42@gmail.com&#39; -&gt; &#39;te****@gmail.com&#39;
-</span><span class=c1></span>  <span class=k>return</span> <span class=nx>email</span><span class=p>.</span><span class=nx>slice</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span> <span class=o>+</span>
-    <span class=nx>email</span><span class=p>.</span><span class=nx>slice</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span> <span class=nx>separatorIndex</span><span class=p>).</span><span class=nx>replace</span><span class=p>(</span><span class=sr>/./g</span><span class=p>,</span> <span class=s1>&#39;*&#39;</span><span class=p>)</span> <span class=o>+</span>
-    <span class=nx>email</span><span class=p>.</span><span class=nx>slice</span><span class=p>(</span><span class=nx>separatorIndex</span><span class=p>);</span>
-<span class=p>}</span>
-
-<span class=kr>const</span> <span class=nx>User</span> <span class=o>=</span> <span class=nx>mongoose</span><span class=p>.</span><span class=nx>model</span><span class=p>(</span><span class=s1>&#39;User&#39;</span><span class=p>,</span> <span class=nx>userSchema</span><span class=p>);</span>
-<span class=kr>const</span> <span class=nx>user</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>User</span><span class=p>({</span> <span class=nx>email</span><span class=o>:</span> <span class=s1>&#39;ab@gmail.com&#39;</span> <span class=p>});</span>
-<span class=nx>user</span><span class=p>.</span><span class=nx>email</span><span class=p>;</span> <span class=c1>// **@gmail.com
-</span></code></pre></div><p>Una función SET que permite manipular los datos antes de ser guardados en la base de
-datos</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>userSchema</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Schema</span><span class=p>({</span>
-<span class=nx>email</span><span class=o>:</span> <span class=p>{</span>
-<span class=nx>type</span><span class=o>:</span> <span class=nb>String</span><span class=p>,</span>
-<span class=nx>set</span><span class=o>:</span> <span class=nx>v</span> <span class=p>=&gt;</span> <span class=nx>v</span><span class=p>.</span><span class=nx>toLowerCase</span><span class=p>()</span>
-<span class=p>}</span>
-<span class=p>});</span>
-
-<span class=kr>const</span> <span class=nx>User</span> <span class=o>=</span> <span class=nx>mongoose</span><span class=p>.</span><span class=nx>model</span><span class=p>(</span><span class=s1>&#39;User&#39;</span><span class=p>,</span> <span class=nx>userSchema</span><span class=p>);</span>
-
-<span class=kr>const</span> <span class=nx>user</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>User</span><span class=p>({</span> <span class=nx>email</span><span class=o>:</span> <span class=s1>&#39;TEST@gmail.com&#39;</span> <span class=p>});</span>
-<span class=nx>user</span><span class=p>.</span><span class=nx>email</span><span class=p>;</span> <span class=c1>// &#39;test@gmail.com&#39;
-</span><span class=c1></span>
-<span class=c1>// The raw value of `email` is lowercased
-</span><span class=c1></span><span class=nx>user</span><span class=p>.</span><span class=nx>get</span><span class=p>(</span><span class=s1>&#39;email&#39;</span><span class=p>,</span> <span class=kc>null</span><span class=p>,</span> <span class=p>{</span> <span class=nx>getters</span><span class=o>:</span> <span class=kc>false</span> <span class=p>});</span> <span class=c1>// &#39;test@gmail.com&#39;
-</span><span class=c1></span>
-<span class=nx>user</span><span class=p>.</span><span class=nx>set</span><span class=p>({</span> <span class=nx>email</span><span class=o>:</span> <span class=s1>&#39;NEW@gmail.com&#39;</span> <span class=p>});</span>
-<span class=nx>user</span><span class=p>.</span><span class=nx>email</span><span class=p>;</span> <span class=c1>// &#39;new@gmail.com&#39;
-</span></code></pre></div><p>Con mongoose todo deriva de un esquema, por ello se genera un modelo a partir del esquema
+como objeto:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>userSchema</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Schema</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>email</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>type</span><span class=o>:</span> <span class=nb>String</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>get</span><span class=o>:</span> <span class=nx>obfuscate</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Mongoose passes the raw value in MongoDB `email` to the getter
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>obfuscate</span><span class=p>(</span><span class=nx>email</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>separatorIndex</span> <span class=o>=</span> <span class=nx>email</span><span class=p>.</span><span class=nx>indexOf</span><span class=p>(</span><span class=s1>&#39;@&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=nx>separatorIndex</span> <span class=o>&lt;</span> <span class=mi>3</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// &#39;ab@gmail.com&#39; -&gt; &#39;**@gmail.com&#39;
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>return</span> <span class=nx>email</span><span class=p>.</span><span class=nx>slice</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=nx>separatorIndex</span><span class=p>).</span><span class=nx>replace</span><span class=p>(</span><span class=sr>/./g</span><span class=p>,</span> <span class=s1>&#39;*&#39;</span><span class=p>)</span> <span class=o>+</span>
+</span></span><span class=line><span class=cl>      <span class=nx>email</span><span class=p>.</span><span class=nx>slice</span><span class=p>(</span><span class=nx>separatorIndex</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// &#39;test42@gmail.com&#39; -&gt; &#39;te****@gmail.com&#39;
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=k>return</span> <span class=nx>email</span><span class=p>.</span><span class=nx>slice</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span> <span class=o>+</span>
+</span></span><span class=line><span class=cl>    <span class=nx>email</span><span class=p>.</span><span class=nx>slice</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span> <span class=nx>separatorIndex</span><span class=p>).</span><span class=nx>replace</span><span class=p>(</span><span class=sr>/./g</span><span class=p>,</span> <span class=s1>&#39;*&#39;</span><span class=p>)</span> <span class=o>+</span>
+</span></span><span class=line><span class=cl>    <span class=nx>email</span><span class=p>.</span><span class=nx>slice</span><span class=p>(</span><span class=nx>separatorIndex</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>User</span> <span class=o>=</span> <span class=nx>mongoose</span><span class=p>.</span><span class=nx>model</span><span class=p>(</span><span class=s1>&#39;User&#39;</span><span class=p>,</span> <span class=nx>userSchema</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>user</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>User</span><span class=p>({</span> <span class=nx>email</span><span class=o>:</span> <span class=s1>&#39;ab@gmail.com&#39;</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=nx>user</span><span class=p>.</span><span class=nx>email</span><span class=p>;</span> <span class=c1>// **@gmail.com
+</span></span></span></code></pre></div><p>Una función SET que permite manipular los datos antes de ser guardados en la base de
+datos</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>userSchema</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Schema</span><span class=p>({</span>
+</span></span><span class=line><span class=cl><span class=nx>email</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=nx>type</span><span class=o>:</span> <span class=nb>String</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=nx>set</span><span class=o>:</span> <span class=nx>v</span> <span class=p>=&gt;</span> <span class=nx>v</span><span class=p>.</span><span class=nx>toLowerCase</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>User</span> <span class=o>=</span> <span class=nx>mongoose</span><span class=p>.</span><span class=nx>model</span><span class=p>(</span><span class=s1>&#39;User&#39;</span><span class=p>,</span> <span class=nx>userSchema</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>user</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>User</span><span class=p>({</span> <span class=nx>email</span><span class=o>:</span> <span class=s1>&#39;TEST@gmail.com&#39;</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=nx>user</span><span class=p>.</span><span class=nx>email</span><span class=p>;</span> <span class=c1>// &#39;test@gmail.com&#39;
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=c1>// The raw value of `email` is lowercased
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>user</span><span class=p>.</span><span class=nx>get</span><span class=p>(</span><span class=s1>&#39;email&#39;</span><span class=p>,</span> <span class=kc>null</span><span class=p>,</span> <span class=p>{</span> <span class=nx>getters</span><span class=o>:</span> <span class=kc>false</span> <span class=p>});</span> <span class=c1>// &#39;test@gmail.com&#39;
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=nx>user</span><span class=p>.</span><span class=nx>set</span><span class=p>({</span> <span class=nx>email</span><span class=o>:</span> <span class=s1>&#39;NEW@gmail.com&#39;</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=nx>user</span><span class=p>.</span><span class=nx>email</span><span class=p>;</span> <span class=c1>// &#39;new@gmail.com&#39;
+</span></span></span></code></pre></div><p>Con mongoose todo deriva de un esquema, por ello se genera un modelo a partir del esquema
 y define un documento en el que operará la aplicación. Más precisamente, un modelo es una
 clase que define un documento con las propiedades y comportamientos declarados en nuestro
 esquema. Todas las operaciones de base de datos realizadas en un documento con Mongoose
 deben hacer referencia a un modelo.</p><div class=gdoc-page__anchorwrap><h3 id=el-esquema>El Esquema
 <a data-clipboard-text=https://frre-dacs.github.io/teoria-practicos/acceso-datos/odm/#el-esquema class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor El Esquema" href=#el-esquema><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg></a></h3></div><p>El schema es la estructura que van a tener nuestros datos. Nos permite decidir exactamente
-qué datos queremos y qué opciones que los datos tengan como objeto.</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>mongoose</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s2>&#34;mongoose&#34;</span><span class=p>);</span>
-
-<span class=kr>const</span> <span class=nx>FoodSchema</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>mongoose</span><span class=p>.</span><span class=nx>Schema</span><span class=p>({</span>
-  <span class=nx>nombre</span><span class=o>:</span> <span class=p>{</span>
-    <span class=nx>type</span><span class=o>:</span> <span class=nb>String</span><span class=p>,</span>
-    <span class=nx>required</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
-    <span class=nx>trim</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
-    <span class=nx>lowercase</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
-  <span class=p>},</span>
-  <span class=nx>calorias</span><span class=o>:</span> <span class=p>{</span>
-    <span class=nx>type</span><span class=o>:</span> <span class=nb>Number</span><span class=p>,</span>
-    <span class=k>default</span><span class=o>:</span> <span class=mi>0</span><span class=p>,</span>
-    <span class=nx>validate</span><span class=p>(</span><span class=nx>value</span><span class=p>)</span> <span class=p>{</span>
-      <span class=k>if</span> <span class=p>(</span><span class=nx>value</span> <span class=o>&lt;</span> <span class=mi>0</span><span class=p>)</span> <span class=k>throw</span> <span class=k>new</span> <span class=nb>Error</span><span class=p>(</span><span class=s2>&#34;Las calorias negativas no son reales.&#34;</span><span class=p>);</span>
-    <span class=p>},</span>
-  <span class=p>},</span>
-<span class=p>});</span>
-
-<span class=kr>const</span> <span class=nx>Food</span> <span class=o>=</span> <span class=nx>mongoose</span><span class=p>.</span><span class=nx>model</span><span class=p>(</span><span class=s2>&#34;Food&#34;</span><span class=p>,</span> <span class=nx>FoodSchema</span><span class=p>);</span>
-
-<span class=nx>module</span><span class=p>.</span><span class=nx>exports</span> <span class=o>=</span> <span class=nx>Food</span><span class=p>;</span>
-</code></pre></div><p>Consiste en un nombre, de tipo String, será obligatorio, se limpian espacios en blanco y estará
+qué datos queremos y qué opciones que los datos tengan como objeto.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>mongoose</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s2>&#34;mongoose&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>FoodSchema</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>mongoose</span><span class=p>.</span><span class=nx>Schema</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>nombre</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>type</span><span class=o>:</span> <span class=nb>String</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>required</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>trim</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>lowercase</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=nx>calorias</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>type</span><span class=o>:</span> <span class=nb>Number</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=k>default</span><span class=o>:</span> <span class=mi>0</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>validate</span><span class=p>(</span><span class=nx>value</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=nx>value</span> <span class=o>&lt;</span> <span class=mi>0</span><span class=p>)</span> <span class=k>throw</span> <span class=k>new</span> <span class=nb>Error</span><span class=p>(</span><span class=s2>&#34;Las calorias negativas no son reales.&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>Food</span> <span class=o>=</span> <span class=nx>mongoose</span><span class=p>.</span><span class=nx>model</span><span class=p>(</span><span class=s2>&#34;Food&#34;</span><span class=p>,</span> <span class=nx>FoodSchema</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>module</span><span class=p>.</span><span class=nx>exports</span> <span class=o>=</span> <span class=nx>Food</span><span class=p>;</span>
+</span></span></code></pre></div><p>Consiste en un nombre, de tipo String, será obligatorio, se limpian espacios en blanco y estará
 en minúsculas. También tendremos calorías, de tipo numérico, un valor por defecto de 0 y una
 validación para que no pueda ser menor a 0.</p><div class=gdoc-page__anchorwrap><h3 id=crud-con-mongoose>CRUD con Mongoose
-<a data-clipboard-text=https://frre-dacs.github.io/teoria-practicos/acceso-datos/odm/#crud-con-mongoose class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor CRUD con Mongoose" href=#crud-con-mongoose><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg></a></h3></div><p>Cuando quieres hacer un nuevo registro creas una nueva instancia de tu modelo e invocas al método save. En este caso estoy definiendo las propiedades manualmente, pero pueden venir de cualquier lugar.</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>videojuego</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Videojuego</span><span class=p>({</span>
-  <span class=nx>nombre</span><span class=o>:</span> <span class=s2>&#34;Cuphead&#34;</span><span class=p>,</span>
-  <span class=nx>precio</span><span class=o>:</span> <span class=mi>180</span><span class=p>,</span>
-  <span class=nx>calificacion</span><span class=o>:</span> <span class=mi>10</span><span class=p>,</span>
-<span class=p>});</span>
-<span class=kr>await</span> <span class=nx>videojuego</span><span class=p>.</span><span class=nx>save</span><span class=p>();</span>
-<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;Guardado&#34;</span><span class=p>);</span>
-</code></pre></div><p>Cuando quieres obtener todos los registros, invoca al método find:</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>videojuegos</span> <span class=o>=</span> <span class=kr>await</span> <span class=nx>Videojuego</span><span class=p>.</span><span class=nx>find</span><span class=p>();</span>
-<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>videojuegos</span><span class=p>);</span>
-</code></pre></div><p>Si quieres obtener un registro por id, invoca a findById:</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>id</span> <span class=o>=</span> <span class=s2>&#34;12354564asdf&#34;</span><span class=p>;</span>
-<span class=kr>const</span> <span class=nx>videojuego</span> <span class=o>=</span> <span class=kr>await</span> <span class=nx>Videojuego</span><span class=p>.</span><span class=nx>findById</span><span class=p>(</span><span class=nx>id</span><span class=p>);</span>
-<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>videojuego</span><span class=p>);</span>
-</code></pre></div><p>En el caso de actualizar un registro por id puedes usar a findOneAndUpdate:</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>id</span> <span class=o>=</span> <span class=s2>&#34;1235213asdf&#34;</span><span class=p>;</span>
-<span class=kr>await</span> <span class=nx>Videojuego</span><span class=p>.</span><span class=nx>findOneAndUpdate</span><span class=p>({</span>
-  <span class=mi>_</span><span class=nx>id</span><span class=o>:</span> <span class=nx>id</span><span class=p>,</span>
-<span class=p>},</span> <span class=p>{</span>
-  <span class=nx>nombre</span><span class=o>:</span> <span class=s2>&#34;Nuevo nombre&#34;</span><span class=p>,</span>
-  <span class=nx>precio</span><span class=o>:</span> <span class=mi>500</span><span class=p>,</span>
-  <span class=nx>calificacion</span><span class=o>:</span> <span class=mi>9</span><span class=p>,</span>
-<span class=p>});</span>
-<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;Actualizado&#34;</span><span class=p>);</span>
-</code></pre></div><p>Y finalmente para eliminar un registro a partir del ID puedes usar findOneAndDelete:</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>id</span> <span class=o>=</span> <span class=s2>&#34;123213asdf&#34;</span><span class=p>;</span>
-<span class=kr>await</span> <span class=nx>Videojuego</span><span class=p>.</span><span class=nx>findOneAndDelete</span><span class=p>({</span> <span class=mi>_</span><span class=nx>id</span><span class=o>:</span> <span class=nx>id</span> <span class=p>});</span>
-<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;Eliminado&#34;</span><span class=p>);</span>
-</code></pre></div><div class=gdoc-page__anchorwrap><h3 id=conclusión>Conclusión
+<a data-clipboard-text=https://frre-dacs.github.io/teoria-practicos/acceso-datos/odm/#crud-con-mongoose class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor CRUD con Mongoose" href=#crud-con-mongoose><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg></a></h3></div><p>Cuando quieres hacer un nuevo registro creas una nueva instancia de tu modelo e invocas al método save. En este caso estoy definiendo las propiedades manualmente, pero pueden venir de cualquier lugar.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>videojuego</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Videojuego</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>nombre</span><span class=o>:</span> <span class=s2>&#34;Cuphead&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>precio</span><span class=o>:</span> <span class=mi>180</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>calificacion</span><span class=o>:</span> <span class=mi>10</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=kr>await</span> <span class=nx>videojuego</span><span class=p>.</span><span class=nx>save</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;Guardado&#34;</span><span class=p>);</span>
+</span></span></code></pre></div><p>Cuando quieres obtener todos los registros, invoca al método find:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>videojuegos</span> <span class=o>=</span> <span class=kr>await</span> <span class=nx>Videojuego</span><span class=p>.</span><span class=nx>find</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>videojuegos</span><span class=p>);</span>
+</span></span></code></pre></div><p>Si quieres obtener un registro por id, invoca a findById:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>id</span> <span class=o>=</span> <span class=s2>&#34;12354564asdf&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>videojuego</span> <span class=o>=</span> <span class=kr>await</span> <span class=nx>Videojuego</span><span class=p>.</span><span class=nx>findById</span><span class=p>(</span><span class=nx>id</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>videojuego</span><span class=p>);</span>
+</span></span></code></pre></div><p>En el caso de actualizar un registro por id puedes usar a findOneAndUpdate:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>id</span> <span class=o>=</span> <span class=s2>&#34;1235213asdf&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>await</span> <span class=nx>Videojuego</span><span class=p>.</span><span class=nx>findOneAndUpdate</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>_id</span><span class=o>:</span> <span class=nx>id</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>},</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>nombre</span><span class=o>:</span> <span class=s2>&#34;Nuevo nombre&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>precio</span><span class=o>:</span> <span class=mi>500</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>calificacion</span><span class=o>:</span> <span class=mi>9</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;Actualizado&#34;</span><span class=p>);</span>
+</span></span></code></pre></div><p>Y finalmente para eliminar un registro a partir del ID puedes usar findOneAndDelete:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>id</span> <span class=o>=</span> <span class=s2>&#34;123213asdf&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>await</span> <span class=nx>Videojuego</span><span class=p>.</span><span class=nx>findOneAndDelete</span><span class=p>({</span> <span class=nx>_id</span><span class=o>:</span> <span class=nx>id</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;Eliminado&#34;</span><span class=p>);</span>
+</span></span></code></pre></div><div class=gdoc-page__anchorwrap><h3 id=conclusión>Conclusión
 <a data-clipboard-text=https://frre-dacs.github.io/teoria-practicos/acceso-datos/odm/#conclusión class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Conclusión" href=#conclusi%c3%b3n><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg></a></h3></div><p>MongoDB nos proporciona las ventajas de una base de datos NoSQL, como la flexibilidad de la
 estructura de datos, la escalabilidad y el rendimiento sin abandonar conceptos que han hecho a
 las bases de datos relacionales lo que son hoy en día, como consistencia de datos y la
@@ -142,4 +142,6 @@ problema de escalado de E/S, lo que funciona de maravilla. Entonces cuándo usar
 respuesta es simple, si el problema no contiene operaciones intensivas de CPU ni el acceso a
 los recursos de bloqueo, node es la respuesta.</p></article><div class="gdoc-page__footer flex flex-wrap justify-between"></div></div></main><footer class=gdoc-footer><div class="container flex flex-wrap"><span class=gdoc-footer__item>Built with <a href=https://gohugo.io/ class=gdoc-footer__link>Hugo</a> and<svg class="icon gdoc_heart"><use xlink:href="#gdoc_heart"/></svg></span>
 <span class=gdoc-footer__item><a href=https://blog.example.com/legal class=gdoc-footer__link>Legal Notice</a></span>
-<span class=gdoc-footer__item><a href=/privacy class=gdoc-footer__link>Privacy Policy</a></span></div></footer></div><script defer src=/js/en.search.min.076a7ab50dbb2725c8d7e02f9db30ff26f5e8e396ef2c29626b9853954af0a90.js></script><script defer src=/js/clipboard-af8ab36589.min.js></script><script>document.addEventListener("DOMContentLoaded",function(a){var b=new ClipboardJS('.clip')})</script></body></html>
+<span class=gdoc-footer__item><a href=/privacy class=gdoc-footer__link>Privacy Policy</a></span></div></footer></div><script defer src=/js/en.search.min.e07ffabe5bc24eeed9fc76a308294cb54ed59a0db84bd2a724fb0148f78f8024.js></script>
+<script defer src=/js/clipboard-af8ab36589.min.js></script>
+<script>document.addEventListener("DOMContentLoaded",function(){var t=new ClipboardJS(".clip")})</script></body></html>
