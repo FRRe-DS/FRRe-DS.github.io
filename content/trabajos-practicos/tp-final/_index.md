@@ -14,7 +14,7 @@ weight: 10
 
 ## Modalidad de Desarrollo
 
-Grupal: en grupos de entre 4 y 6 alumnos.
+Grupal: en grupos de entre 4 y 7 alumnos.
 
 ## Formato de Presentación
 
@@ -57,45 +57,6 @@ La evolución de trabajo se realizará de acuerdo a la siguiente tabla:
 
 ## Actividad 1: Escenario
 
-El Ministerio de Desarrollo Productivo, junto con la Secretaría de Comercio Interior han sancionado la
-[Resolución 237/2021](https://www.boletinoficial.gob.ar/detalleAviso/primera/241937/20210317) por la cual se
-crea el **Sistema Informativo para la Implementación de Políticas de Reactivación Económica** (SIPRE).
-
-Este sistema, cuyo objetivo final es contribuir a la reactivación económica del país, tiene por alcance a
-todas las empresas del sector comercio e industria local. Estas empresas deberá suministrar información
-de forma mensual, a través del repositorio de información del MINISTERIO DE DESARROLLO PRODUCTIVO,
-los primeros diez (10) días corridos de cada mes calendario.
-
-La información suministrada deberá contener, como mínimo, los siguientes datos:
-
-- CUIT de la empresa.
-- Denominación del producto.
-- Código EAN o equivalente sectorial del producto; y
-- Precio por unidad de peso, cantidad o medida del producto.
-- Cantidades producidas y vendidas
-
-Para esto los alumnos de la cátedra Desarrollo de Aplicaciones Cliente-Servidor deberá desarrollar
-un sistema que implemente los siguiente sub-sistemas:
-
-### Ministerio de Desarrollo Productivo
-
-Este sub-sistema deberá exponer las APIs (Application Programing Interface) para que las
-empresas presenten mensualmente la información de regimen informativo de la resolución.
-A su vez, deberá exponer servicios para resumir la información que está disponible para la
-Secretaría de Comercio Interior.
-
-### Empresas del Sector Comercio
-
-Se deberá crear librerias para acceder y publicar los regímenes informativos al **Ministerio de
-Desarrollo Productivo**. Se deberá proveer una implementación de referencia, que utilice la librería
-y publique los datos en el Ministerio.
-
-### Secretaría de Comercio Interior
-
-La Secretería de Comercio Interior debe ser capaz de consultar los datos publicados
-en el repositorio de información del Ministerio de Desarrollo Productivo, y por medio
-de ciertas reglas de negocios y políticas establacidas, generar altertas de incumplimiento,
-y en caso de ser necesario, reportar al comercio el incumplimiento de la normativa.
 
 ## Desarrollo
 
