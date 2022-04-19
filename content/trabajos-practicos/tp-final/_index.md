@@ -14,7 +14,7 @@ weight: 10
 
 ## Modalidad de Desarrollo
 
-Grupal: en grupos de entre 4 y 5 alumnos.
+Grupal: en grupos de entre 4 y 7 alumnos.
 
 ## Formato de Presentación
 
