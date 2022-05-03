@@ -65,6 +65,13 @@ La mayoría de los paquetes turísticos que la empresa comercializa están compu
 
 Debido a las imposiciones impuestas por los organismos de control que rigen la actividad del sector, las agencias de turismos (incluida FANTUR) deben solicitar permisos al organismo de contralor antes de confirmar a las operaciones a sus clientes. Este tipo de solicitudes deber ser realizar en forma on-line y por medio de un web-service que el organismo provee.
 
+{{< hint info >}}
+**Informacion del servicio**
+
+Este servicio no fue desarrollado por los alumnos de la cátedra Desarrollo de Aplicaciones Cliente-Servidor, por lo cual
+la tasa de error del mismo es aleatoria y deberá ser tenida en cuenta a la hora de utilizarlo.
+  {{< /hint >}}
+
 Contar con una aplicación para teléfonos móviles donde los usuarios puedan consultar u operar sería una muy buena ventaja competitiva para esta empresa.
 
 ## Desarrollo
