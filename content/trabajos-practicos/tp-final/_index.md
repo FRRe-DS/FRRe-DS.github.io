@@ -1,6 +1,6 @@
 ---
 title: Trabajo Práctico Final
-description: "Denifición del TP Final de Desarrollo de Aplicaciones Cliente-Servidor, año 2021."
+description: "Denifición del TP Final de Desarrollo de Software, año 2021."
 weight: 10
 ---
 
@@ -57,7 +57,7 @@ La evolución de trabajo se realizará de acuerdo a la siguiente tabla:
 
 ## Actividad 1: Escenario
 
-En vísperas al mundial de Qatar 2022 la empresa Fantastic Tour (FANTUR S.A.) ha solicitado a los alumnos de la materia Desarrollo de Aplicaciones Cliente-Servidor el desarrollo de un sistema para la venta y administración de paquetes turísticos.
+En vísperas al mundial de Qatar 2022 la empresa Fantastic Tour (FANTUR S.A.) ha solicitado a los alumnos de la materia Desarrollo de Software el desarrollo de un sistema para la venta y administración de paquetes turísticos.
 
 El sistema debe permitir a los clientes registrar en forma electrónica, realizar consultas de paquetes, reservar paquetes y abobar los mismo por diferentes medios (tarjetas de crédito o otros sistemas de pago on-line) y enviar publicidad (via e-mail) a sus clientes.
 
@@ -68,7 +68,7 @@ Debido a las imposiciones impuestas por los organismos de control que rigen la a
 {{< hint info >}}
 **Informacion del servicio**
 
-Este servicio no fue desarrollado por los alumnos de la cátedra Desarrollo de Aplicaciones Cliente-Servidor, por lo cual
+Este servicio no fue desarrollado por los alumnos de la cátedra Desarrollo de Software, por lo cual
 la tasa de error del mismo es aleatoria y deberá ser tenida en cuenta a la hora de utilizarlo.
   {{< /hint >}}
 

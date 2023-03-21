@@ -1,6 +1,6 @@
 baseURL = "https://frre-dacs.github.io/"
 languageCode = "ES-ar"
-title = "FRRe - Desarrollo de Aplicaciones Cliente-Servidor"
+title = "FRRe - Desarrollo de Software"
 
 theme = "hugo-geekdoc"
 
