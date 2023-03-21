@@ -43,3 +43,8 @@ Principios y Buenas Prácticas. Vulnerabilidades web. Ciclo de desarrollo de sof
 ### Complementaria
 
 - Farley, David (2021). _Modern Software Engineering: Doing What Works to Build Better Software Faster_. (1st Edition) ADDISON WESLEY Publishing Company Incorporated. ISBN: 0137314914.
+
+### Webgrafía
+
+- Sitio oficial de la Cloud Native Computing Foundation. (2021, February 10). Retrieved from <https://www.cncf.io/>
+- The World’s Largest Web Developer Site. (2021, February 10). Retrieved from <https://www.w3schools.com/>
