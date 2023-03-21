@@ -7,7 +7,7 @@ weight: 10
 Un Sistema de Versionado de Código (SVC) en abstracto es lo que nos permite compartir el código fuente de nuestros desarrollos y a la vez mantener un registro de los cambios por los que va pasando.  
 Habitualmente para gestionar las distintas versiones por las que pasa el código fuente de las aplicaciones, lo que nos permite saber quién realiza qué cambios y poder volver a ellos en un determinado momento. Los más utilizados en este campo a lo largo del tiempo (aunque existen bastante más) son CVS, Subversion y Git
 
-Ver presentación: [Sistemas de control de versiones](https://github.com/FRRe-DACS/Presentaciones/blob/master/practica/Control%20versiones/Sistemas%20de%20control%20de%20versiones.pdf)
+Ver presentación: [Sistemas de control de versiones](https://github.com/FRRe-DS/Presentaciones/blob/master/practica/Control%20versiones/Sistemas%20de%20control%20de%20versiones.pdf)
 
 ### ¿Porqué usar un control de versiones nos hará felices?
 ● Proporciona copias de seguridad automáticas de los ficheros.  

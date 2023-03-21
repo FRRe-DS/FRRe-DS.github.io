@@ -12,7 +12,7 @@ datos, en pocas palabras un repositorio media entre el dominio y las
 capas de mapeo de datos, actuando como una colección de objetos de
 dominio en memoria
 
-Ver presentación: [Acceso Datos](https://github.com/FRRe-DACS/Presentaciones/blob/master/practica/acceso%20datos/Acceso%20a%20datos-patrones%20utiles.pdf)
+Ver presentación: [Acceso Datos](https://github.com/FRRe-DS/Presentaciones/blob/master/practica/acceso%20datos/Acceso%20a%20datos-patrones%20utiles.pdf)
 
 ### Data Mappers
 Es una capa de software que separa los objetos en memoria de la

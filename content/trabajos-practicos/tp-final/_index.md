@@ -77,7 +77,7 @@ Contar con una aplicación para teléfonos móviles donde los usuarios puedan co
 ## Desarrollo
 
 Para el desarrollo del TP, los grupos deberán definir, coordinando entre ellos, las APIs
-de los diferentes actores y publicarlas en el sitio web de la [materia](https://github.com/FRRe-DACS/FRRe-DACS.github.io/) 
+de los diferentes actores y publicarlas en el sitio web de la [materia](https://github.com/FRRe-DS/FRRe-DS.github.io/) 
 (por medio de PRs).
 
 Por ejemplo: para la definición de las APIs, los diferentes grupos deberán generar, en forma

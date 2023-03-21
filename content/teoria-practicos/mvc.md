@@ -7,8 +7,8 @@ weight: 60
 Es un patrón de diseño de arquitectura de software.
 
 Ver presentaciones:
-- [Patrón MVC](https://github.com/FRRe-DACS/Presentaciones/blob/master/practica/capa%20presentacion%20NET/patron%20MVC.pdf)
-- [ASP.NET MVC](https://github.com/FRRe-DACS/Presentaciones/blob/master/practica/capa%20presentacion%20NET/ASP.NET%20MVC.pdf)
+- [Patrón MVC](https://github.com/FRRe-DS/Presentaciones/blob/master/practica/capa%20presentacion%20NET/patron%20MVC.pdf)
+- [ASP.NET MVC](https://github.com/FRRe-DS/Presentaciones/blob/master/practica/capa%20presentacion%20NET/ASP.NET%20MVC.pdf)
 
 
 ### Modelo
@@ -34,4 +34,4 @@ En el controlador se encuentran los componentes capaces de procesar las interacc
 
 ## SOAP Web Services
 Ver presentación: 
-- [SOAP Web Services](https://github.com/FRRe-DACS/Presentaciones/blob/master/practica/capa%20presentacion%20NET/wsintro.pdf)
+- [SOAP Web Services](https://github.com/FRRe-DS/Presentaciones/blob/master/practica/capa%20presentacion%20NET/wsintro.pdf)

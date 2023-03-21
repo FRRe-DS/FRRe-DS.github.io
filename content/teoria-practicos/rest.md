@@ -15,7 +15,7 @@ Los verbos que utiliza son exactamente los
 mismos, con ellos se puede hacer GET,
 POST, PUT y DELETE.
 
-Ver presentación: [REST API](https://github.com/FRRe-DACS/Presentaciones/blob/master/practica/capa%20presentacion%20NET/Restful%20API.pdf)
+Ver presentación: [REST API](https://github.com/FRRe-DS/Presentaciones/blob/master/practica/capa%20presentacion%20NET/Restful%20API.pdf)
 
 **Para que una API sea considerada como REST debe superar las siguientes características arquitectónicas**
 ● Uso de una interfaz uniforme  
@@ -108,4 +108,4 @@ des-sincronización.
 
 ## Seguridad en REST API
 Ver presentación: 
-- [Seguridad REST API](https://github.com/FRRe-DACS/Presentaciones/blob/master/practica/capa%20presentacion%20NET/Seguridad%20REST%20API.pdf)
+- [Seguridad REST API](https://github.com/FRRe-DS/Presentaciones/blob/master/practica/capa%20presentacion%20NET/Seguridad%20REST%20API.pdf)
