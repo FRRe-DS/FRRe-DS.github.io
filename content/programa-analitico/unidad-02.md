@@ -1,12 +1,11 @@
 ---
-title: UNIDAD 2
+title: UNIDAD 2 - Herramientas de soporte al proceso de desarrollo
 weight: 20
 ---
 
-## Servicios de BackEnd y servidores de aplicaciones
+## Herramientas de soporte al proceso de desarrollo
 
-Arquitecturas de sistemas cliente servidor de 2 y 3 capas. Como se implementa una capa de negocios. Objetos basados en clases reutilizables. Modelos de ejecución actuales. Máquinas virtuales, containers y virtualización a nivel SO. Compiladores just-in-time. Distribución de aplicaciones a través de la red.
-Frameworks de persistencia, hibernate, JPA.
+Entornos integrados de desarrollo. Ciclos de vida de una aplicación. Servicios de los entornos de desarrollo integrados (IDE) modernos. Compiladores just-in-time. Máquinas virtuales, containers y virtualización a nivel SO. Capa de acceso a datos. Framework de persistencia.
 
 ### Objetivos específicos
 

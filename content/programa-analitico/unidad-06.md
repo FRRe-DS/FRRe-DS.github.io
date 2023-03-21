@@ -1,11 +1,11 @@
 ---
-title: UNIDAD 6
+title: UNIDAD 6 - Desarrollo Seguro
 weight: 60
 ---
 
-## Las tecnologías emergentes: la Nube
+## Desarrollo Seguro
 
-Comparativa entre sistemas en la nube y sistemas sobre demanda. El software como servicio. La infraestructura como servicio. El ecosistema de desarrollo, venta de aplicaciones, entorno de ejecución, dependencia de servicios específicos basados en la nube: localización y seguimiento, licenciamiento, autenticación y autorización distribuidas. Servicios en la nube para clientes convencionales y para dispositivos móviles. Comparativas entre Amazon Cloud Services, Windows Azure, Google Apps, y su integración con las IDEs correspondientes. Kuberntes y las arquitecturas de microservicios y los service mesh.
+Principios y Buenas Prácticas. Vulnerabilidades web. Ciclo de desarrollo de software seguro. Modelo OSWAP. SQL Injection. XSS (Cross Site Scripting). Seguridad en Microservicios, APIs, Autenticación, Sesiones. Web Tokens, Introducción a OAuth 2.
 
 ### Objetivos específicos
 

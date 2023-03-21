@@ -1,11 +1,11 @@
 ---
-title: UNIDAD 5
+title: UNIDAD 5 - Pruebas unitarias
 weight: 50
 ---
 
-## Frameworks de desarrollo de uso en la industria
+## Pruebas unitarias
 
-La tecnología .Net, Java, Golang, Rust. Similitudes y diferencias en el modelo de ejecución. Arquitectura de las máquinas virtuales específicas. Clientes pesados. Clientes livianos. Objetos de negocio. Capa de acceso a datos. Framework de persistencia. Capa de fachada web y cliente inteligente. Entornos integrados de desarrollo. Ciclos de vida de una aplicación. Servicios de los entornos de desarrollo integrados (IDE) modernos. Servidores de integración continua. Ciclo de vida de proyectos basado en la nube.
+Conceptos. Stubs, Mocks, Spies y Dummies. Cobertura. Statement Coverage. Decision Coverage. Branch Coverage. Toggle Coverage. FSM Coverage. Herramientas. Pruebas de integración. Pruebas de Sistema. Pruebas de Aceptación.
 
 ### Objetivos específicos:
 
