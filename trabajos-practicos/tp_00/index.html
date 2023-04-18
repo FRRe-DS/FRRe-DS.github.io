@@ -13,7 +13,46 @@ justify-between" itemprop=breadcrumb><div><svg class="icon gdoc_path hidden-mobi
 <a data-clipboard-text=https://frre-dacs.github.io/trabajos-practicos/tp_00/#capa-de-acceso-a-datos class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Capa de Acceso a Datos" href=#capa-de-acceso-a-datos><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg></a></h3></div><div class=gdoc-page__anchorwrap><h4 id=botonería-el-cabulero>Botonería &ldquo;El Cabulero&rdquo;
 <a data-clipboard-text=https://frre-dacs.github.io/trabajos-practicos/tp_00/#botonería-el-cabulero class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Botonería &ldquo;El Cabulero&rdquo;" href=#botoner%c3%ada-el-cabulero><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg></a></h4></div><p>La Botonería &ldquo;El Cabulero&rdquo;, atendida por su propios dueños, se dedica a la compra y venta de botones. Actualmente menejan diferentes marcas y modelos para abastecer a un
 mercado relativamente estable de clientes, en los que se encuentran fabricas de calzados, ropas y público en general.</p><p>José Antonio, dueño y generente de &ldquo;El Cabulero&rdquo; ha seguido muy de cerca el desempeño de la selección Argentina de Futbol en los últimos tiempos y ha determinado que:</p><ul><li>La final del Mundo del 25 de junio de 1978, Argentina ha sido campeón. 2</li><li>La final del Mundo del 29 de junio de 1986, Argentina ha sido campeón. 5</li><li>La final del Mundo del 8 de julio de 1990, Argentina pierde.</li><li>La final del Mundo del 13 de julio de 2014, Argentina pierde.</li><li>La final del Mundo del 18 de diciembre de 2022, Argentina ha sido campeón. 2</li></ul><p>A raiz de esta fecha, las formaciones de los equipos y diferentes cuestiones esotericas, que por cuestiones de privacidad no han sido compartidas, ha solicitados a los
-alumnos de esta materia un sistema que funcione diferentes funtes de datos de la siguiente manera:</p><ul><li>Lunes y Jueves: MySQL</li><li>Martes: MongoDB</li><li>Miercoles, Viernes y Sábados: PostgreSQL</li><li>Domingos: Ninguna de las atereiores.</li></ul></article><div class="gdoc-page__footer flex flex-wrap justify-between"></div></div></main><footer class=gdoc-footer><div class="container flex flex-wrap"><span class=gdoc-footer__item>Built with <a href=https://gohugo.io/ class=gdoc-footer__link>Hugo</a> and<svg class="icon gdoc_heart"><use xlink:href="#gdoc_heart"/></svg></span>
+alumnos de esta materia un sistema que funcione diferentes funtes de datos de la siguiente manera:</p><ul><li>Lunes y Jueves: MySQL</li><li>Martes: MongoDB</li><li>Miercoles, Viernes y Sábados: PostgreSQL</li><li>Domingos: Ninguna de las atereiores.</li></ul><div class=gdoc-page__anchorwrap><h3 id=manejo-de-streams>Manejo de Streams
+<a data-clipboard-text=https://frre-dacs.github.io/trabajos-practicos/tp_00/#manejo-de-streams class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Manejo de Streams" href=#manejo-de-streams><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg></a></h3></div><p>Para cada uno de los siguientes problemas, genere una solución al mismo y las pruebas que lo comprueban.</p><div class=gdoc-page__anchorwrap><h4 id=películas-y-generos>Películas y Generos
+<a data-clipboard-text=https://frre-dacs.github.io/trabajos-practicos/tp_00/#películas-y-generos class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Películas y Generos" href=#pel%c3%adculas-y-generos><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg></a></h4></div><p>Dato el siguiente modelo de datos</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span> <span class=kd>class</span> <span class=nc>Pelicula</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kd>private</span> <span class=n>String</span> <span class=n>uuid</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kd>private</span> <span class=n>String</span> <span class=n>nombre</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kd>private</span> <span class=n>String</span> <span class=n>genero</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kd>private</span> <span class=n>List</span><span class=o>&lt;</span><span class=n>Actor</span><span class=o>&gt;</span> <span class=n>actores</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kd>private</span> <span class=n>List</span><span class=o>&lt;</span><span class=n>Puntucion</span><span class=o>&gt;</span> <span class=n>puntuaciones</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=kd>class</span> <span class=nc>Actor</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kd>private</span> <span class=kt>long</span> <span class=n>dni</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kd>private</span> <span class=n>String</span> <span class=n>nombre</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kd>private</span> <span class=n>String</span> <span class=n>apellido</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=kd>class</span> <span class=nc>Puntucion</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kd>private</span> <span class=n>LocalDateTime</span> <span class=n>timestamp</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kd>private</span> <span class=kt>int</span> <span class=n>valor</span><span class=o>;</span> <span class=c1>// [1..5] estrellas
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=o>}</span>
+</span></span></code></pre></div><p>Dada la siguiente interfaz para acceder a los datos</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span> <span class=kd>interface</span> <span class=nc>PeliculaDao</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>  <span class=n>List</span><span class=o>&lt;</span><span class=n>Pelicula</span><span class=o>&gt;</span> <span class=nf>findAll</span><span class=o>();</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></div><p>Escriba las clases y métodos para responder a las siguientes preguntas</p><p>1 - Obtener todas las películas en las que actua <strong>Ricardo Darin</strong>.
+2 - Obtener un ranking de cantidad de películas por actor.
+3 - Obtener un ranking de cantidad de películas por género.
+4 - Obtener un ranking de cantidad de películas más punteadas.
+5 - Obtener un ranking de cantidad de películas por puntuacion.
+6 - Obtener un ranking de cantidad de películas por puntuacion y por año.
+7 - Obtener las mejores <em>n</em> películas por género del año actual.</p><p>Genere los tests para cada caso.</p></article><div class="gdoc-page__footer flex flex-wrap justify-between"></div></div></main><footer class=gdoc-footer><div class="container flex flex-wrap"><span class=gdoc-footer__item>Built with <a href=https://gohugo.io/ class=gdoc-footer__link>Hugo</a> and<svg class="icon gdoc_heart"><use xlink:href="#gdoc_heart"/></svg></span>
 <span class=gdoc-footer__item><a href=https://blog.example.com/legal class=gdoc-footer__link>Legal Notice</a></span>
 <span class=gdoc-footer__item><a href=/privacy class=gdoc-footer__link>Privacy Policy</a></span></div></footer></div><script defer src=/js/en.search.min.d4ae4aeb4913fcad13d0cda54abbb26d5db19030b17273a0474617ca82594c68.js></script>
 <script defer src=/js/clipboard-af8ab36589.min.js></script>
