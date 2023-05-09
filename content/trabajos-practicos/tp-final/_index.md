@@ -57,7 +57,13 @@ La evolución de trabajo se realizará de acuerdo a la siguiente tabla:
 
 ## Actividad 1: Escenario
 
-TBD.
+El bar de Pedro quiere automatizar las compras que los clientes realizan en las instalaciones de la FRRe. 
+Para esto se necesita matener una lista de productos, los precios asociados a cada producto, las compras
+realizadas y las ventas realizadas.
+
+El sistema debe realizar al fin del dia un reporte de las ventas realizadas, indicando el margen de ganacias. 
+Estos reportes debe ser también semanales, mensuales y anuales.
+
 
 {{< hint info >}}
 **Informacion del servicio**
