@@ -64,14 +64,6 @@ realizadas y las ventas realizadas.
 El sistema debe realizar al fin del dia un reporte de las ventas realizadas, indicando el margen de ganacias. 
 Estos reportes debe ser también semanales, mensuales y anuales.
 
-
-{{< hint info >}}
-**Informacion del servicio**
-
-Este servicio no fue desarrollado por los alumnos de la cátedra Desarrollo de Software, por lo cual
-la tasa de error del mismo es aleatoria y deberá ser tenida en cuenta a la hora de utilizarlo.
-  {{< /hint >}}
-
 Contar con una aplicación para teléfonos móviles donde los usuarios puedan consultar u operar sería una muy buena ventaja competitiva para esta empresa.
 
 ## Desarrollo
