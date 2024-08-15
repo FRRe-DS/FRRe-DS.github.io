@@ -57,6 +57,52 @@ La evolución de trabajo se realizará de acuerdo a la siguiente tabla:
 
 ## Actividad 1: Escenario
 
+La organización de la  Bienal Internacional de Escultura del Chaco, se a contactado son su empresa para planificar, analizar, desarrollar e implementar un sistema de gestión que soporte el registro de los eventos, escultores como así también aplicaciones satélites para que los ciudadanos/ publico en general pueda realizar comentarios y votación durante el evento.
+
+### Requerimientos funcionales
+
+1. **Gestión de Eventos**: Se desea poder generar eventos futuros (y también poder cargar los eventos pasados para tener el historial) Posibilidad de agregar, ver, modificar y eliminar información sobre cada evento. Detalle del Evento: Información sobre la fecha, lugar, descripción y temática del evento.
+
+2. **Gestión de Escultores**: Se desea poder mantener la información de los escultores Posibilidad de agregar, ver, modificar y eliminar información de los escultores. Perfil del escultor: Información detallada del escultor incluyendo nombre, biografía, contacto y obras previas.
+
+3. **Gestión de Esculturas**: Posibilidad de agregar, ver, modificar y eliminar información sobre cada escultura. Temática de la Escultura: Descripción de la temática de cada escultura, fecha de creación, etc.
+
+4. **Gestión de Imágenes**: Subir y Visualizar Imágenes: Posibilidad de subir y ver fotos de las esculturas en diferentes etapas (antes, durante y después del evento).
+
+5. **Aplicación web**: pública para visualizar el próximo evento, y los eventos anteriores. Sitio web público para ver los escultores y sus esculturas.
+
+6. **Sistema de Votación**: Votación por Visitantes: Funcionalidad para que los visitantes puedan votar por sus esculturas favoritas. Deberá estar en el sitio web público. El sistema de votación es con valores del 1 al 5 (el 5 el de mayor puntaje).
+
+7. **Autenticación de Votantes**: Sistema para asegurar que cada visitante puede votar solo una vez (por ejemplo, a través de una cuenta de usuario o validación por email).
+
+8. **Sistema de votacion por sitio web publico**: Haciendo uso de un botón de votar en cada escultor
+
+9. **Sistema de votación por QR**: En cada escultor estará disponible una tablet/pantalla que visualizará un QR “único” que deben cambiar cada 1min (para prevenir el uso del QR por fuera del predio, cada minuto cambiará el QR y los anteriores ya no deberán funcionar).
+
+
+10. Que la aplicación web (Sitio Publico) sea una PWA (Aplicación web progresiva)
+
+### Requerimientos no funcionales
+
+1. **Interfaz de Usuario (UI) Adaptable a dispositivos**: Se requiere utilizar la aplicación tanto de gestión como de los usuarios finales en diferentes dispositivos (tablet, desktop, móviles)
+
+2. **Multiplataforma**: Compatibilidad con diferentes navegadores y dispositivos (PC, tablet, móvil).
+
+3. **Autenticación y Autorización**: Uso de mecanismos seguros para autenticación y autorización de usuarios. Tanto para el área de gestión como para el área de usuarios para la votación.
+
+4. **Protección de Datos**: Asegurar que los datos de los escultores y visitantes estén protegidos contra accesos no autorizados.
+
+5. **Tiempo de Respuesta**: Garantizar tiempos de respuesta rápidos en la carga de vistas/páginas y procesamiento de datos.
+
+6. **Optimización de Imágenes**: Asegurar que las fotos subidas estén optimizadas para una carga rápida sin pérdida de calidad significativa.
+
+7. **Usabilidad Interfaz Intuitiva**: Diseño de una interfaz que sea fácil de usar tanto para administradores como para visitantes.
+
+8. **Accesibilidad**: Asegurar que la aplicación sea accesible para usuarios con discapacidades.
+
+9. **Integración con Redes Sociales**: Posibilidad de compartir eventos y esculturas en redes sociales.
+
+10. **Sistema de validación de votantes**: para evitar fraudes, posiblemente mediante la integración de un sistema de autenticación externo o captcha.
 
 ## Desarrollo
 
